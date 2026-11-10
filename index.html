@@ -208,7 +208,7 @@ footer b { color: var(--on-night); }
 
 <header class="hero" id="top">
   <img class="poster" src="media/fire.jpg" alt="">
-  <video autoplay muted loop playsinline poster="media/fire.jpg" aria-hidden="true"><source src="media/fire.webm" type="video/webm"></video>
+  <video autoplay muted loop playsinline poster="media/fire.jpg" aria-hidden="true"><source src="media/fire.webm#t=2.35" type="video/webm"></video>
   <div class="wrap">
     <svg class="crest" role="img" aria-label="Герб Государства Дача"><use href="#crest"/></svg>
     <p class="eyebrow">Официальный портал · Объявлен сбор гостей</p>
@@ -421,8 +421,10 @@ footer b { color: var(--on-night); }
   // В шапке крутится только сцена с костром: до монтажной склейки в конце отрывка
   var heroVideo = document.querySelector('.hero video');
   if (heroVideo) {
-    heroVideo.addEventListener('loadedmetadata', function () { heroVideo.currentTime = 0.6; });
-    heroVideo.addEventListener('timeupdate', function () { if (heroVideo.currentTime > 4.4 || heroVideo.currentTime < 0.5) heroVideo.currentTime = 0.6; });
+    var toFire = function () { if (heroVideo.currentTime > 3.75 || heroVideo.currentTime < 2.3) heroVideo.currentTime = 2.35; };
+    heroVideo.addEventListener('loadedmetadata', toFire);
+    heroVideo.addEventListener('timeupdate', toFire);
+    if (heroVideo.readyState >= 1) toFire();
   }
   var KEY = 'dacha-hashka-draft';
   var textIds = ['f-name', 'f-tg', 'f-who', 'f-drinks', 'f-bring'];
