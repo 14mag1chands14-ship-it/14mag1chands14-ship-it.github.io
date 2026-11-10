@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="РћС„РёС†РёР°Р»СЊРЅС‹Р№ РїРѕСЂС‚Р°Р» Р“РѕСЃСѓРґР°СЂСЃС‚РІР° Р”Р°С‡Р°. РћР±СЉСЏРІР»РµРЅ СЃР±РѕСЂ РіРѕСЃС‚РµР№ РЅР° РҐРђРЁРљРЈ: С…СЂРѕРЅРёРєР°, СѓРєР°Р·С‹, РєРѕРЅСЃС‚РёС‚СѓС†РёСЏ Рё Р·Р°СЏРІР»РµРЅРёРµ РЅР° РІСЉРµР·Рґ.">
+<meta property="og:title" content="Р“РѕСЃСѓРґР°СЂСЃС‚РІРѕ Р”Р°С‡Р°">
+<meta property="og:description" content="РћР±СЉСЏРІР»РµРЅ СЃР±РѕСЂ РіРѕСЃС‚РµР№ РЅР° РҐРђРЁРљРЈ. РџРѕРґР°Р№ Р·Р°СЏРІР»РµРЅРёРµ РЅР° РІСЉРµР·Рґ.">
+<meta property="og:image" content="media/road.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 96'%3E%3Cpath d='M6 6h68v44c0 22-15 34-34 42C21 84 6 72 6 50z' fill='%23123A9C' stroke='%23E9C766' stroke-width='4'/%3E%3Cpath d='M40 22c7 9 13 15 13 25a13 13 0 0 1-26 0c0-5 2-8 5-11 1 4 3 6 5 6 0-7 1-13 3-20z' fill='%23E9C766'/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Государство Дача</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Golos+Text:wght@400;500;700&family=PT+Mono&display=swap">
+<style>
+/* Layout: государственный портал. Служебная полоса с флагом и гербом, тёмная шапка с видео костра и словом ХАШКА,
+   дальше колонка 1040px: хроника (мозаика фото и видео), указы и конституция, заявление на бланке. */
+:root {
+  --bg: #F3F5F9;
+  --surface: #FFFFFF;
+  --ink: #0D1830;
+  --muted: #56617A;
+  --state: #123A9C;        /* государственный синий, цвет служебного автомобиля */
+  --state-deep: #0A1F57;
+  --on-state: #FFFFFF;
+  --gold: #B8860B;
+  --gold-soft: #E9C766;
+  --ember: #D9501E;
+  --grass: #2E7D4F;
+  --line: #D3DAE6;
+  --night: #070D1C;        /* фон шапки и подвала, одинаков в обеих темах */
+  --on-night: #F4F6FB;
+  --on-night-muted: #B5BED2;
+  --flag-black: #0B0B0B;   /* флаг в цветах Российской империи: чёрный, жёлтый, белый */
+  --flag-yellow: #FFD200;
+  --flag-white: #FFFFFF;
+  --f-display: "PT Serif", Georgia, "Times New Roman", serif;
+  --f-body: "Golos Text", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "PT Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1022; --surface: #121A33; --ink: #ECF0F9; --muted: #9EA9C2;
+    --state: #2F5FD8; --state-deep: #0A1F57; --on-state: #FFFFFF;
+    --gold: #E0B84A; --gold-soft: #E9C766; --ember: #FF7A45; --grass: #58B981; --line: #263255;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1022; --surface: #121A33; --ink: #ECF0F9; --muted: #9EA9C2;
+  --state: #2F5FD8; --state-deep: #0A1F57; --on-state: #FFFFFF;
+  --gold: #E0B84A; --gold-soft: #E9C766; --ember: #FF7A45; --grass: #58B981; --line: #263255;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+h1, h2, h3, p, ul, ol, dl, dd, figure, fieldset, legend { margin: 0; padding: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+img, video { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 2px; }
+
+.wrap {
+  max-width: 1072px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+
+/* Служебная полоса */
+.strip { background: var(--night); color: var(--on-night); border-bottom: 1px solid rgba(255,255,255,.12); }
+.strip .wrap { padding-block: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; margin-right: auto; }
+.flag { width: 33px; height: 22px; border-radius: 2px; overflow: hidden; display: grid; grid-template-rows: repeat(3, 1fr); flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.45); }
+.flag i:nth-child(1) { background: var(--flag-black); } .flag i:nth-child(2) { background: var(--flag-yellow); } .flag i:nth-child(3) { background: var(--flag-white); }
+.strip nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; }
+.strip nav a { color: var(--on-night-muted); text-decoration: none; padding-block: 4px; }
+.strip nav a:hover { color: var(--on-night); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Шапка */
+.hero { position: relative; background: var(--night); color: var(--on-night); overflow: hidden; isolation: isolate; }
+.hero video, .hero .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(7,13,28,.72) 0%, rgba(7,13,28,.5) 45%, rgba(7,13,28,.94) 100%); }
+.hero .wrap { padding-block: 56px 48px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+.crest { width: 76px; height: auto; }
+.hero .eyebrow { color: var(--gold-soft); }
+.hero h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(64px, 19vw, 190px); line-height: .86; letter-spacing: -.01em; text-transform: uppercase; }
+.lead { font-size: clamp(18px, 2.4vw, 22px); max-width: 30em; color: var(--on-night); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  display: inline-block; font: 700 16px var(--f-body); text-decoration: none; cursor: pointer;
+  background: var(--gold-soft); color: #1A1400; border: 0; border-radius: 8px; padding: 15px 26px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+.btn.line { background: transparent; color: var(--on-night); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.5); }
+.btn.dark { background: var(--state); color: var(--on-state); }
+.btn.tg { background: #229ED9; color: #FFFFFF; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+.notice { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; overflow: hidden; width: 100%; margin-top: 12px; }
+.notice div { background: rgba(7,13,28,.78); padding: 14px 16px; min-width: 0; }
+.notice dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-night-muted); }
+.notice dd { font-weight: 700; font-size: 17px; margin-top: 2px; }
+
+main { display: flex; flex-direction: column; }
+.sec { padding-block: 56px; }
+.sec .wrap { display: flex; flex-direction: column; gap: 24px; }
+.sec.alt { background: var(--surface); }
+.head { display: flex; flex-direction: column; gap: 8px; }
+.head .eyebrow { color: var(--gold); }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 5.4vw, 48px); line-height: 1.05; }
+.sub { color: var(--muted); max-width: 40em; }
+
+/* Хроника */
+.mosaic { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+.mosaic figure { position: relative; border-radius: 12px; overflow: hidden; background: var(--night); min-width: 0; }
+.mosaic img, .mosaic video { width: 100%; height: 100%; object-fit: cover; }
+.mosaic figcaption { position: absolute; inset: auto 0 0 0; padding: 28px 14px 12px; color: #fff; font-size: 14px; line-height: 1.3; background: linear-gradient(180deg, transparent, rgba(0,0,0,.8)); }
+.mosaic figcaption b { display: block; font-family: var(--f-mono); font-weight: 400; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-soft); }
+.m-road { grid-column: span 8; aspect-ratio: 7 / 5; }
+.m-car { grid-column: span 4; }
+.m-mangal { grid-column: span 3; aspect-ratio: 9 / 13; }
+.m-fire { grid-column: span 5; }
+.m-title { grid-column: span 4; }
+.m-title img { object-fit: contain; }
+.m-car img, .m-fire img, .m-title img { position: absolute; inset: 0; }
+@media (max-width: 720px) {
+  .m-road, .m-fire, .m-title { grid-column: span 12; }
+  .m-car, .m-mangal { grid-column: span 12; aspect-ratio: 4 / 5; }
+  .m-fire { aspect-ratio: 16 / 10; }
+  .m-title { aspect-ratio: 5 / 4; }
+}
+
+/* Указы */
+.decrees { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.decree { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sec.alt .decree { background: var(--bg); }
+.decree .num { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.decree h3 { font-family: var(--f-display); font-size: 22px; line-height: 1.2; }
+.decree p { color: var(--muted); }
+.decree strong { color: var(--ink); }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li { border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; font-size: 14px; }
+.decree.hard { border-color: var(--ember); }
+.decree.hard .num { color: var(--ember); }
+
+/* Заявление */
+.blank { background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--state); border-radius: 12px; padding: 26px 20px; display: flex; flex-direction: column; gap: 22px; max-width: 760px; }
+.blank-head { display: flex; gap: 14px; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.blank-head svg { width: 44px; flex: none; }
+.blank-head b { display: block; font-family: var(--f-display); font-size: 20px; line-height: 1.2; }
+.blank-head span { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+label, legend { font-weight: 700; font-size: 15px; }
+.hint { font-size: 14px; color: var(--muted); font-weight: 400; }
+input[type="text"], textarea, select { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 8px; padding: 11px 13px; width: 100%; min-width: 0; }
+textarea { min-height: 84px; resize: vertical; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--state); outline-offset: 1px; }
+fieldset { border: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; font-weight: 500; cursor: pointer; }
+.chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chips span { display: block; border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 16px; background: var(--bg); }
+.chips input:checked + span { background: var(--state); border-color: var(--state); color: var(--on-state); }
+.chips input:focus-visible + span { outline: 3px solid var(--gold-soft); outline-offset: 2px; }
+.agree { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; }
+.agree input { width: 22px; height: 22px; margin: 2px 0 0; flex: none; accent-color: var(--state); }
+.err { color: var(--ember); font-weight: 700; font-size: 15px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.done pre { margin: 0; font-family: var(--f-mono); font-size: 14px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg); border: 1.5px dashed var(--line); border-radius: 8px; padding: 16px; user-select: all; }
+.done ol { padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.status { font-weight: 700; min-height: 1.5em; color: var(--grass); }
+.btn.quiet { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); }
+
+footer { background: var(--night); color: var(--on-night-muted); font-size: 14px; }
+footer .wrap { padding-block: 28px 36px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer b { color: var(--on-night); }
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="crest" viewBox="0 0 80 96">
+    <path d="M6 6h68v44c0 22-15 34-34 42C21 84 6 72 6 50z" fill="#123A9C" stroke="#E9C766" stroke-width="4"/>
+    <path d="M40 22c7 9 13 15 13 25a13 13 0 0 1-26 0c0-5 2-8 5-11 1 4 3 6 5 6 0-7 1-13 3-20z" fill="#E9C766"/>
+    <path d="M40 40c3 4 5 6 5 10a5 5 0 0 1-10 0c0-4 2-6 5-10z" fill="#D9501E"/>
+    <path d="M22 66h36M26 66l-4 10M54 66l4 10" stroke="#E9C766" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M18 16l3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1zM62 16l3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1z" fill="#E9C766" transform="scale(.62) translate(14 6)"/>
+  </symbol>
+</svg>
+
+<div class="strip">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="flag" role="img" aria-label="Флаг Государства Дача: чёрная, жёлтая и белая полосы"><i></i><i></i><i></i></span>Государство Дача</a>
+    <nav aria-label="Разделы портала">
+      <a href="#hronika">Хроника</a>
+      <a href="#ukazy">Указы</a>
+      <a href="#konstituciya">Конституция</a>
+      <a href="#zayavlenie">Заявление</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <img class="poster" src="media/fire.jpg" alt="">
+  <video autoplay muted loop playsinline poster="media/fire.jpg" aria-hidden="true"><source src="media/fire.webm" type="video/webm"></video>
+  <div class="wrap">
+    <svg class="crest" role="img" aria-label="Герб Государства Дача"><use href="#crest"/></svg>
+    <p class="eyebrow">Официальный портал · Объявлен сбор гостей</p>
+    <h1>Хашка</h1>
+    <p class="lead">Государство Дача открывает приём заявлений на главное мероприятие года. Костёр, свои люди и служебный автомобиль синего цвета.</p>
+    <div class="cta-row">
+      <a class="btn" href="#zayavlenie">Подать заявление</a>
+      <a class="btn line" href="#hronika">Смотреть хронику</a>
+    </div>
+    <dl class="notice">
+      <div><dt>Дата</dt><dd>Будет объявлена указом</dd></div>
+      <div><dt>Место</dt><dd>Будет объявлено указом</dd></div>
+      <div><dt>Приём заявлений</dt><dd>Открыт</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+  <section class="sec" id="hronika" aria-labelledby="h-hronika">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Государственный архив</p>
+        <h2 id="h-hronika">Хроника «Юбилейной Хашки 2026»</h2>
+        <p class="sub">Кадры из официального фильма о прошлой хашке. Так это выглядит, когда всё идёт по плану.</p>
+      </div>
+      <div class="mosaic">
+        <figure class="m-road"><img src="media/road.jpg" alt="Голубые «Жигули» на трассе, двое пассажиров едут в люке и машут руками" loading="lazy"><figcaption><b>Кадр 1</b>Правительственный кортеж следует к месту проведения</figcaption></figure>
+        <figure class="m-car"><img src="media/car.jpg" alt="Синие «Жигули» на поляне, перед ними дымится кострище из кирпичей" loading="lazy"><figcaption><b>Кадр 2</b>Служебный автомобиль и государственный очаг</figcaption></figure>
+        <figure class="m-mangal"><video autoplay muted loop playsinline poster="media/mangal.jpg" aria-label="Видео: высокое пламя под мангалом на поляне"><source src="media/mangal.webm" type="video/webm"></video><figcaption><b>Видео</b>Кайфовые моменты</figcaption></figure>
+        <figure class="m-fire"><img src="media/fire.jpg" alt="Большой костёр в кирпичном круге на поляне, рядом складные кресла" loading="lazy"><figcaption><b>Кадр 3</b>Торжественное открытие отопительного сезона</figcaption></figure>
+        <figure class="m-title"><img src="media/title.jpg" alt="Финальная заставка фильма: Юбилейная Хашка 2026, до следующего года" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="ukazy" aria-labelledby="h-ukazy">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Нормативные акты</p>
+        <h2 id="h-ukazy">Действующие указы</h2>
+      </div>
+      <div class="decrees">
+        <article class="decree">
+          <span class="num">Указ № 1</span>
+          <h3>О дате и месте</h3>
+          <p>Дата и место хашки <strong>пока не определены</strong>. Их объявят отдельным указом, а подавшим заявление сообщат лично.</p>
+        </article>
+        <article class="decree">
+          <span class="num">Указ № 2</span>
+          <h3>О казне</h3>
+          <p>Основу хашки оплачивает правительство: Артём, Егор, Никита и Ваня.</p>
+          <ul class="tags"><li>Дрова</li><li>Выпивка</li><li>Закуски</li><li>Еда</li><li>Бензин</li></ul>
+        </article>
+        <article class="decree">
+          <span class="num">Указ № 3</span>
+          <h3>О взносе</h3>
+          <p>С гостя <strong>от 600 до 1000 ₽</strong>, кто сколько может, но не больше 1000. Чем полнее казна, тем разнообразнее стол. Остаток делится на всех, кто был. Реквизиты сообщают после одобрения заявления.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="konstituciya" aria-labelledby="h-konst">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Основной закон</p>
+        <h2 id="h-konst">Конституция хашки</h2>
+      </div>
+      <div class="decrees">
+        <article class="decree hard">
+          <span class="num">Статья 1</span>
+          <h3>Список гостей не меняется</h3>
+          <p>Кто в списке на старте, тот и на хашке. Во время мероприятия нельзя никого звать и привозить. Исключение только для родственников. Нарушителя выдворяют без права вернуться и вносят в чёрный список.</p>
+        </article>
+        <article class="decree">
+          <span class="num">Статья 2</span>
+          <h3>Въезд по расписанию</h3>
+          <p>Граница открыта в объявленное окно заезда. После него въезд и пропуск на территорию закрыты, опоздавших не запускают.</p>
+        </article>
+        <article class="decree">
+          <span class="num">Статья 3</span>
+          <h3>Взнос до старта</h3>
+          <p>Закупка идёт заранее, поэтому перевод нужен до мероприятия. В комментарии: слово «хашка» и имя с фамилией.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="zayavlenie" aria-labelledby="h-form">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Миграционная служба</p>
+        <h2 id="h-form">Заявление на въезд</h2>
+        <p class="sub">Заполни бланк. Портал соберёт из него готовое письмо в канцелярию, тебе останется нажать «Отправить» в своей почте.</p>
+      </div>
+
+      <form class="blank" id="form" novalidate>
+        <div class="blank-head">
+          <svg viewBox="0 0 80 96" aria-hidden="true"><use href="#crest"/></svg>
+          <div><b>Заявление на въезд на ХАШКУ</b><span>Форма № 1-Х · Государство Дача</span></div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="f-name">Имя и фамилия</label>
+            <input type="text" id="f-name" autocomplete="name" placeholder="Иван Петров" required>
+          </div>
+          <div class="field">
+            <label for="f-tg">Ник в Telegram</label>
+            <input type="text" id="f-tg" placeholder="@nickname" autocapitalize="off" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-who">Кто из правительства тебя знает</label>
+          <select id="f-who">
+            <option>Артём</option><option>Егор</option><option>Никита</option><option>Ваня</option><option>Никто, я новенький</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Взнос в казну</legend>
+          <div class="chips">
+            <label><input type="radio" name="fee" id="f-fee-600" value="600 ₽"><span>600 ₽</span></label>
+            <label><input type="radio" name="fee" id="f-fee-800" value="800 ₽" checked><span>800 ₽</span></label>
+            <label><input type="radio" name="fee" id="f-fee-1000" value="1000 ₽"><span>1000 ₽</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Транспорт</legend>
+          <div class="chips">
+            <label><input type="radio" name="ride" id="f-r-own" value="Сам доберусь" checked><span>Сам доберусь</span></label>
+            <label><input type="radio" name="ride" id="f-r-car" value="На машине, могу взять людей"><span>На машине, возьму людей</span></label>
+            <label><input type="radio" name="ride" id="f-r-need" value="Нужно место в машине"><span>Нужно место в машине</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="f-drinks">Пожелания к столу <span class="hint">(необязательно)</span></label>
+          <textarea id="f-drinks" placeholder="Например: сидр, тоник, что-нибудь безалкогольное"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="f-bring">Что привезёшь или чем поможешь <span class="hint">(необязательно)</span></label>
+          <textarea id="f-bring" placeholder="Колонка, мангал, палатка, могу помочь с дровами"></textarea>
+        </div>
+
+        <label class="agree" for="f-agree">
+          <input type="checkbox" id="f-agree" required>
+          <span>С конституцией хашки ознакомлен и обязуюсь её соблюдать.</span>
+        </label>
+
+        <p class="err" id="err" role="alert" hidden></p>
+        <div class="actions"><button class="btn dark" type="submit" id="submit">Сформировать заявление</button></div>
+      </form>
+
+      <div class="blank done" id="done" hidden tabindex="-1">
+        <div class="blank-head">
+          <svg viewBox="0 0 80 96" aria-hidden="true"><use href="#crest"/></svg>
+          <div><b id="done-title">Заявление сформировано</b><span id="done-sub">Осталось отправить</span></div>
+        </div>
+        <pre id="done-text"></pre>
+        <ol id="steps-tg" hidden>
+          <li>Нажми «Отправить в Telegram». Откроется чат с главой государства, текст заявления уже будет в поле сообщения.</li>
+          <li>Нажми «Отправить» в Telegram.</li>
+          <li>Жди ответа. Дату, место и реквизиты сообщат после одобрения.</li>
+        </ol>
+        <ol id="steps-copy">
+          <li>Выбери свою почту ниже. Откроется готовое письмо в канцелярию: адрес, тема и текст уже заполнены.</li>
+          <li>Нажми «Отправить» в почте.</li>
+          <li>Жди ответа. Дату, место и реквизиты сообщат после одобрения.</li>
+        </ol>
+        <div class="actions" id="mail-row">
+          <a class="btn dark" id="send-mailru" target="_blank" rel="noopener">Mail.ru</a>
+          <a class="btn dark" id="send-yandex" target="_blank" rel="noopener">Яндекс Почта</a>
+          <a class="btn dark" id="send-gmail" target="_blank" rel="noopener">Gmail</a>
+        </div>
+        <p class="hint" id="mail-hint">Другая почта? Скопируй текст и отправь письмо на адрес <b id="owner-email" style="user-select:all"></b></p>
+        <div class="actions">
+          <a class="btn tg" id="send-tg" target="_blank" rel="noopener" hidden>Отправить в Telegram</a>
+          <button class="btn quiet" type="button" id="copy">Скопировать текст</button>
+          <button class="btn quiet" type="button" id="edit">Изменить заявление</button>
+        </div>
+        <p class="status" id="status" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="flag" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span><b>Государство Дача.</b> Официальный портал.</span>
+    <span>Портал готовит письмо с заявлением, отправляешь его ты из своей почты.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Ник Telegram (без @), куда гости отправляют заявления. Пусто: гость копирует текст и отправляет сам.
+  var OWNER_TG = '';
+  // Почта канцелярии: сюда гости отправляют заявления письмом
+  var OWNER_EMAIL = 'artem.hockey2004@mail.ru';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('form'), done = $('done'), err = $('err'), status = $('status');
+  // В шапке крутится только сцена с костром: до монтажной склейки в конце отрывка
+  var heroVideo = document.querySelector('.hero video');
+  if (heroVideo) {
+    heroVideo.addEventListener('loadedmetadata', function () { heroVideo.currentTime = 0.6; });
+    heroVideo.addEventListener('timeupdate', function () { if (heroVideo.currentTime > 4.4 || heroVideo.currentTime < 0.5) heroVideo.currentTime = 0.6; });
+  }
+  var KEY = 'dacha-hashka-draft';
+  var textIds = ['f-name', 'f-tg', 'f-who', 'f-drinks', 'f-bring'];
+  var radios = ['fee', 'ride'];
+
+  if (OWNER_TG) { $('send-tg').hidden = false; $('steps-tg').hidden = false; $('steps-copy').hidden = true; }
+  $('owner-email').textContent = OWNER_EMAIL;
+  function mailLinks(text) {
+    var to = encodeURIComponent(OWNER_EMAIL);
+    var su = encodeURIComponent('Заявление на въезд на ХАШКУ: ' + $('f-name').value.trim());
+    var body = encodeURIComponent(text);
+    $('send-mailru').href = 'https://e.mail.ru/compose/?mailto=' + encodeURIComponent('mailto:' + OWNER_EMAIL + '?subject=' + su + '&body=' + body);
+    $('send-yandex').href = 'https://mail.yandex.ru/compose?to=' + to + '&subject=' + su + '&body=' + body;
+    $('send-gmail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to + '&su=' + su + '&body=' + body;
+  }
+
+  // На своём хостинге заявление уходит в канцелярию само. Внутри страницы Claude сеть закрыта, там гость отправляет письмо сам.
+  var AUTO_SEND = !!window.fetch && location.hostname.indexOf('claude') === -1;
+  function manualUi(show) {
+    $('steps-copy').hidden = !show || !!OWNER_TG; $('mail-row').hidden = !show; $('mail-hint').hidden = !show;
+    $('done-title').textContent = show ? 'Заявление сформировано' : 'Заявление отправлено';
+    $('done-sub').textContent = show ? 'Осталось отправить' : 'Канцелярия получила письмо';
+    status.textContent = '';
+  }
+  var sending = false;
+  function autoSend(text) {
+    if (!AUTO_SEND || sending) return;
+    sending = true;
+    status.textContent = 'Отправляем заявление в канцелярию…';
+    fetch('https://formsubmit.co/ajax/' + OWNER_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Заявление на въезд на ХАШКУ: ' + $('f-name').value.trim(),
+        _template: 'box',
+        _captcha: 'false',
+        'Заявитель': $('f-name').value.trim(),
+        'Telegram': normTg($('f-tg').value),
+        'Заявление': text
+      })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      sending = false;
+      if (d && String(d.success) === 'true') {
+        manualUi(false);
+        status.textContent = 'Заявление отправлено. Жди ответа в Telegram.';
+      } else { throw new Error('not sent'); }
+    }).catch(function () {
+      sending = false;
+      status.textContent = 'Само не отправилось. Отправь письмо кнопкой выше.';
+    });
+  }
+
+  function picked(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+  // Черновик хранится только в браузере гостя
+  function saveDraft() {
+    try {
+      var d = {};
+      textIds.forEach(function (id) { d[id] = $(id).value; });
+      radios.forEach(function (n) { d[n] = picked(n); });
+      localStorage.setItem(KEY, JSON.stringify(d));
+    } catch (e) {}
+  }
+  function loadDraft() {
+    try {
+      var d = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (!d) return;
+      textIds.forEach(function (id) { if (typeof d[id] === 'string' && d[id]) $(id).value = d[id]; });
+      radios.forEach(function (n) {
+        form.querySelectorAll('input[name="' + n + '"]').forEach(function (r) { if (r.value === d[n]) r.checked = true; });
+      });
+    } catch (e) {}
+  }
+  loadDraft();
+  form.addEventListener('input', saveDraft);
+
+  function normTg(v) {
+    v = v.trim().replace(/^(https?:\/\/)?t\.me\//i, '').replace(/^@+/, '');
+    return v ? '@' + v : '';
+  }
+  function build() {
+    var lines = [
+      'ЗАЯВЛЕНИЕ НА ВЪЕЗД НА ХАШКУ',
+      'Государство Дача, форма № 1-Х',
+      '',
+      'Заявитель: ' + $('f-name').value.trim(),
+      'Telegram: ' + normTg($('f-tg').value),
+      'Знает из правительства: ' + $('f-who').value,
+      'Взнос в казну: ' + picked('fee'),
+      'Транспорт: ' + picked('ride')
+    ];
+    var drinks = $('f-drinks').value.trim(), bring = $('f-bring').value.trim();
+    if (drinks) lines.push('Пожелания к столу: ' + drinks);
+    if (bring) lines.push('Привезу / помогу: ' + bring);
+    lines.push('', 'С конституцией хашки ознакомлен, обязуюсь соблюдать.');
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var problem = '';
+    if ($('f-name').value.trim().split(/\s+/).length < 2) { problem = 'Напиши имя и фамилию, двумя словами.'; $('f-name').focus(); }
+    else if (!/^@[A-Za-z0-9_]{4,32}$/.test(normTg($('f-tg').value))) { problem = 'Проверь ник в Telegram: латиница, цифры и «_», от 4 символов.'; $('f-tg').focus(); }
+    else if (!$('f-agree').checked) { problem = 'Без согласия с конституцией заявление не принимается. Поставь галочку.'; $('f-agree').focus(); }
+    err.hidden = !problem;
+    err.textContent = problem;
+    if (problem) return;
+    var text = build();
+    $('done-text').textContent = text;
+    mailLinks(text);
+    manualUi(true);
+    autoSend(text);
+    if (OWNER_TG) $('send-tg').href = 'https://t.me/' + OWNER_TG + '?text=' + encodeURIComponent(text);
+    form.hidden = true;
+    done.hidden = false;
+    done.focus();
+    done.scrollIntoView({ block: 'start' });
+  });
+
+  $('edit').addEventListener('click', function () {
+    done.hidden = true;
+    form.hidden = false;
+    $('f-name').focus();
+  });
+
+  $('copy').addEventListener('click', function () {
+    var pre = $('done-text');
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = 'Текст выделен. Скопируй его вручную и отправь письмом.';
+    }
+    try {
+      navigator.clipboard.writeText(pre.textContent).then(function () {
+        status.textContent = 'Скопировано. Теперь отправь заявление письмом.';
+      }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+})();
+</script>
+
+</body>
+</html>
