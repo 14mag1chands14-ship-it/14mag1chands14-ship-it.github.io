@@ -229,3 +229,16 @@ footer { background: #252d25; }
   .hero h1 { font-size: clamp(43px, 11vw, 58px); }
   .mosaic figcaption { padding: 32px 10px 8px; font-size: 10px; }
 }
+
+.doc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.doc-list li { border-bottom: 1px solid var(--line); }
+.doc-list a { display: grid; grid-template-columns: 145px minmax(0, 1fr) 170px; gap: 20px; align-items: center; padding: 22px 0; color: var(--ink); text-decoration: none; }
+.doc-list a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.doc-list span, .doc-list small { font-size: 11px; color: var(--muted); }
+.doc-list span { letter-spacing: .09em; text-transform: uppercase; }
+.doc-list strong { font-size: 17px; font-weight: 600; }
+.doc-list small { text-align: right; }
+@media (max-width: 700px) {
+  .doc-list a { grid-template-columns: 1fr; gap: 5px; padding: 18px 0; }
+  .doc-list small { text-align: left; }
+}
