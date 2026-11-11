@@ -6,12 +6,12 @@
 <meta name="description" content="РћС„РёС†РёР°Р»СЊРЅС‹Р№ РїРѕСЂС‚Р°Р» Р“РѕСЃСѓРґР°СЂСЃС‚РІР° Р”Р°С‡Р°. РћР±СЉСЏРІР»РµРЅ СЃР±РѕСЂ РіРѕСЃС‚РµР№ РЅР° РҐРђРЁРљРЈ: С…СЂРѕРЅРёРєР°, СѓРєР°Р·С‹, РєРѕРЅСЃС‚РёС‚СѓС†РёСЏ Рё Р·Р°СЏРІР»РµРЅРёРµ РЅР° РІСЉРµР·Рґ.">
 <meta property="og:title" content="Р“РѕСЃСѓРґР°СЂСЃС‚РІРѕ Р”Р°С‡Р°">
 <meta property="og:description" content="РћР±СЉСЏРІР»РµРЅ СЃР±РѕСЂ РіРѕСЃС‚РµР№ РЅР° РҐРђРЁРљРЈ. РџРѕРґР°Р№ Р·Р°СЏРІР»РµРЅРёРµ РЅР° РІСЉРµР·Рґ.">
-<meta property="og:image" content="media/road.jpg">
+<meta property="og:image" content="https://14mag1chands14-ship-it.github.io/media/road.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 96'%3E%3Cpath d='M6 6h68v44c0 22-15 34-34 42C21 84 6 72 6 50z' fill='%23123A9C' stroke='%23E9C766' stroke-width='4'/%3E%3Cpath d='M40 22c7 9 13 15 13 25a13 13 0 0 1-26 0c0-5 2-8 5-11 1 4 3 6 5 6 0-7 1-13 3-20z' fill='%23E9C766'/%3E%3C/svg%3E">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Государство Дача</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Golos+Text:wght@400;500;700&family=PT+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: государственный портал. Служебная полоса с флагом и гербом, тёмная шапка с видео костра и словом ХАШКА,
    дальше колонка 1040px: хроника (мозаика фото и видео), указы и конституция, заявление на бланке. */
@@ -180,9 +180,15 @@ footer { background: var(--night); color: var(--on-night-muted); font-size: 14px
 footer .wrap { padding-block: 28px 36px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
 footer b { color: var(--on-night); }
 </style>
+<link rel="stylesheet" href="design.css">
 </head>
 <body>
 
+<div class="site-intro">
+  <p>Государство Дача · 2026</p>
+  <strong>Собираемся<br>там, где свои</strong>
+  <span>Хашка, которую хочется вспоминать. Всё важное — в одном месте.</span>
+</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="crest" viewBox="0 0 80 96">
@@ -207,26 +213,31 @@ footer b { color: var(--on-night); }
 </div>
 
 <header class="hero" id="top">
-  <img class="poster" src="media/fire.jpg" alt="">
-  <video autoplay muted loop playsinline poster="media/fire.jpg" aria-hidden="true"><source src="media/fire.webm#t=2.35" type="video/webm"></video>
+  <img class="poster" src="media/road.jpg" alt="">
   <div class="wrap">
-    <svg class="crest" role="img" aria-label="Герб Государства Дача"><use href="#crest"/></svg>
-    <p class="eyebrow">Официальный портал · Объявлен сбор гостей</p>
-    <h1>Хашка</h1>
-    <p class="lead">Государство Дача открывает приём заявлений на главное мероприятие года. Костёр, свои люди и служебный автомобиль синего цвета.</p>
+    <p class="eyebrow">Государство Дача · 2026</p>
+    <h1>Хашка<br><em>для своих</em></h1>
     <div class="cta-row">
       <a class="btn" href="#zayavlenie">Подать заявление</a>
       <a class="btn line" href="#hronika">Смотреть хронику</a>
     </div>
-    <dl class="notice">
-      <div><dt>Дата</dt><dd>Будет объявлена указом</dd></div>
-      <div><dt>Место</dt><dd>Будет объявлено указом</dd></div>
-      <div><dt>Приём заявлений</dt><dd>Открыт</dd></div>
-    </dl>
   </div>
 </header>
 
 <main>
+  <section class="intro" aria-label="О хашке">
+    <div class="wrap">
+      <svg class="crest" role="img" aria-label="Герб Государства Дача"><use href="#crest"/></svg>
+      <p class="eyebrow">Официальный портал · Объявлен сбор гостей</p>
+      <p class="intro-title">Собираемся <em>вместе</em></p>
+      <p class="lead">Государство Дача открывает приём заявлений на главное мероприятие года. Костёр, свои люди и служебный автомобиль синего цвета.</p>
+      <dl class="notice">
+        <div><dt>Дата</dt><dd>Будет объявлена указом</dd></div>
+        <div><dt>Место</dt><dd>Будет объявлено указом</dd></div>
+        <div><dt>Приём заявлений</dt><dd>Открыт</dd></div>
+      </dl>
+    </div>
+  </section>
 
   <section class="sec" id="hronika" aria-labelledby="h-hronika">
     <div class="wrap">
@@ -418,14 +429,6 @@ footer b { color: var(--on-night); }
 
   var $ = function (id) { return document.getElementById(id); };
   var form = $('form'), done = $('done'), err = $('err'), status = $('status');
-  // В шапке крутится только сцена с костром: до монтажной склейки в конце отрывка
-  var heroVideo = document.querySelector('.hero video');
-  if (heroVideo) {
-    var toFire = function () { if (heroVideo.currentTime > 3.75 || heroVideo.currentTime < 2.3) heroVideo.currentTime = 2.35; };
-    heroVideo.addEventListener('loadedmetadata', toFire);
-    heroVideo.addEventListener('timeupdate', toFire);
-    if (heroVideo.readyState >= 1) toFire();
-  }
   var KEY = 'dacha-hashka-draft';
   var textIds = ['f-name', 'f-tg', 'f-who', 'f-drinks', 'f-bring'];
   var radios = ['fee', 'ride'];
@@ -439,42 +442,6 @@ footer b { color: var(--on-night); }
     $('send-mailru').href = 'https://e.mail.ru/compose/?mailto=' + encodeURIComponent('mailto:' + OWNER_EMAIL + '?subject=' + su + '&body=' + body);
     $('send-yandex').href = 'https://mail.yandex.ru/compose?to=' + to + '&subject=' + su + '&body=' + body;
     $('send-gmail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to + '&su=' + su + '&body=' + body;
-  }
-
-  // На своём хостинге заявление уходит в канцелярию само. Внутри страницы Claude сеть закрыта, там гость отправляет письмо сам.
-  var AUTO_SEND = !!window.fetch && location.hostname.indexOf('claude') === -1;
-  function manualUi(show) {
-    $('steps-copy').hidden = !show || !!OWNER_TG; $('mail-row').hidden = !show; $('mail-hint').hidden = !show;
-    $('done-title').textContent = show ? 'Заявление сформировано' : 'Заявление отправлено';
-    $('done-sub').textContent = show ? 'Осталось отправить' : 'Канцелярия получила письмо';
-    status.textContent = '';
-  }
-  var sending = false;
-  function autoSend(text) {
-    if (!AUTO_SEND || sending) return;
-    sending = true;
-    status.textContent = 'Отправляем заявление в канцелярию…';
-    fetch('https://formsubmit.co/ajax/' + OWNER_EMAIL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        _subject: 'Заявление на въезд на ХАШКУ: ' + $('f-name').value.trim(),
-        _template: 'box',
-        _captcha: 'false',
-        'Заявитель': $('f-name').value.trim(),
-        'Telegram': normTg($('f-tg').value),
-        'Заявление': text
-      })
-    }).then(function (r) { return r.json(); }).then(function (d) {
-      sending = false;
-      if (d && String(d.success) === 'true') {
-        manualUi(false);
-        status.textContent = 'Заявление отправлено. Жди ответа в Telegram.';
-      } else { throw new Error('not sent'); }
-    }).catch(function () {
-      sending = false;
-      status.textContent = 'Само не отправилось. Отправь письмо кнопкой выше.';
-    });
   }
 
   function picked(name) {
@@ -537,8 +504,6 @@ footer b { color: var(--on-night); }
     var text = build();
     $('done-text').textContent = text;
     mailLinks(text);
-    manualUi(true);
-    autoSend(text);
     if (OWNER_TG) $('send-tg').href = 'https://t.me/' + OWNER_TG + '?text=' + encodeURIComponent(text);
     form.hidden = true;
     done.hidden = false;
