@@ -231,6 +231,11 @@ footer { background: #252d25; }
 }
 
 .doc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.people-preview { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); min-height: 340px; border: 1px solid var(--line); }
+.people-preview-photo { min-height: 340px; background: linear-gradient(rgba(19, 31, 20, .08), rgba(19, 31, 20, .3)), url("media/road.jpg") center 58% / cover; }
+.people-preview-copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 4vw, 46px); background: #e9e7dc; }
+.people-preview-mark { color: #776b43; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+.people-preview-copy p { max-width: 320px; margin: 0; font-size: clamp(21px, 2.8vw, 31px); font-weight: 600; line-height: 1.15; letter-spacing: -.04em; }
 .doc-list li { border-bottom: 1px solid var(--line); }
 .doc-list a { display: grid; grid-template-columns: 145px minmax(0, 1fr) 170px; gap: 20px; align-items: center; padding: 22px 0; color: var(--ink); text-decoration: none; }
 .doc-list a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
@@ -239,6 +244,9 @@ footer { background: #252d25; }
 .doc-list strong { font-size: 17px; font-weight: 600; }
 .doc-list small { text-align: right; }
 @media (max-width: 700px) {
+  .people-preview { grid-template-columns: 1fr; }
+  .people-preview-photo { min-height: 250px; }
+  .people-preview-copy { min-height: 190px; }
   .doc-list a { grid-template-columns: 1fr; gap: 5px; padding: 18px 0; }
   .doc-list small { text-align: left; }
 }
