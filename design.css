@@ -277,3 +277,13 @@ footer { background: #252d25; }
   .doc-list a { grid-template-columns: 1fr; gap: 5px; padding: 18px 0; }
   .doc-list small { text-align: left; }
 }
+
+/* Фотоархив юбилейной хашки */
+.photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.photo-card { position: relative; margin: 0; min-width: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #343e32; }
+.photo-card:nth-child(1), .photo-card:nth-child(7) { grid-column: span 2; aspect-ratio: 1.6; }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+.photo-card figcaption { position: absolute; inset: auto 0 0; padding: 45px 18px 16px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.72)); font-size: 15px; font-weight: 600; line-height: 1.2; }
+.photo-card figcaption span { display: block; margin-bottom: 5px; color: #f2e8b6; font-size: 10px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+@media (max-width: 700px) { .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .photo-card:nth-child(1), .photo-card:nth-child(7) { grid-column: span 2; aspect-ratio: 1.5; } }
+@media (max-width: 430px) { .photo-card figcaption { padding: 35px 10px 10px; font-size: 12px; } .photo-card figcaption span { font-size: 8px; } }
